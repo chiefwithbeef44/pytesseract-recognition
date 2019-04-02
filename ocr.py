@@ -1,4 +1,5 @@
-from tesserocr import PyTessBaseAPI as api
+from tesserocr import PyTessBaseAPI
+from pytesseract import *
 import cv2
 from PIL import Image
 
@@ -12,14 +13,15 @@ def getImage(bytes):
 while True:
 
 	ret, frame = cam.read()
-	color = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-	print color
-	# Display the resulting frame
-	scan = cv2.imshow("webcam", color)
+	colorImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-#	api.SetImageFile(getImage(color))
-#	print api.GetUTF8Text()
-#	print api.AllWordConfidences()
+	# Display the resulting frame
+	scan = cv2.imshow("webcam", colorImage)
+
+	grayscaleImage = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+	tessFeed = pytesseract.image_to_boxes(colorImage)
+	print pytesseract.image_to_string(colorImage)
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
