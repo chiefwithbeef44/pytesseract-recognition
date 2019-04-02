@@ -9,7 +9,6 @@ def getImage(bytes):
 	return Image.fromarray(bytes)
 
 
-
 while True:
 
 	ret, frame = cam.read()
@@ -18,9 +17,9 @@ while True:
 	# Display the resulting frame
 	scan = cv2.imshow("webcam", color)
 
-	api.SetImageFile(getImage(scan))
-	print api.GetUTF8Text()
-	print api.AllWordConfidences()
+#	api.SetImageFile(getImage(color))
+#	print api.GetUTF8Text()
+#	print api.AllWordConfidences()
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
