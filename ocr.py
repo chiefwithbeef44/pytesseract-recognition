@@ -6,18 +6,17 @@ cam = cv2.VideoCapture(1)
 
 
 def getImage(bytes):
+	return Image.fromarray(bytes)
 
-	image = Image.fromstring('RGB', (640, 480), bytes)
-	return image
 
 
 while True:
 
 	ret, frame = cam.read()
-	color = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+	color = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 	print color
 	# Display the resulting frame
-	scan = cv2.imshow('frame', color)
+	scan = cv2.imshow("webcam", color)
 
 	api.SetImageFile(getImage(scan))
 	print api.GetUTF8Text()
