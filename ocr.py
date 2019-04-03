@@ -9,18 +9,18 @@ while True:
 	colorImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
 	# Display the rgb frame
-	colorScan = cv2.imshow("color camera", colorImage)
+	cv2.imshow("color camera", colorImage)
 
 	grayscaleImage = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 	# display the grayscale image
-	grayscaleScan = cv2.imshow("grayscale camera", grayscaleImage)
+	cv2.imshow("grayscale camera", grayscaleImage)
 
 	output = pytesseract.image_to_string(grayscaleImage)
-	if(output == ""):
-		print "nothing seen"
-	else:
+
+	if(output != ""):
 		print output, pytesseract.get_errors("")
+		print "------------------------------------------------------------"
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
