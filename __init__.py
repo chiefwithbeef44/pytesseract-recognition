@@ -1,15 +1,27 @@
 
 # Default is internal camera
-camera = 0
-
+lang = 0
 #Gets what camera the user would like to use
+
+
 def getCamera():
+
 	print "Please select a webcam"
-	print "Your default camera is camera #"+camera
+	print "Your default camera is camera #0"
 	print "0. Internal Webcam"
 	print "1. USB Webcam"
-	input("Your selection: ", camera)
-	return camera
+	camera = input("Your selection: ")
+	return int(camera)
 
-if __name__ == "__init__":
-	getCamera()
+
+def pickLanguage():
+
+	print "Select a language: "
+	print "Your default language is: "+str(lang)
+	print "0. English"
+	print "1. French"
+	input("Your selection: ")
+	if lang == 1:
+		return "fra"
+	else:
+		return "eng"
