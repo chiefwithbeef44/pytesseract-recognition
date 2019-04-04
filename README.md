@@ -1,5 +1,7 @@
 # pytesseract-recognition
 
+This program uses pytesseract and opencv to recognize text from a webcam. 
+
 ## prerequisites
 
 #### 0. python 2
