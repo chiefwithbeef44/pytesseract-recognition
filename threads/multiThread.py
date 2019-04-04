@@ -1,5 +1,5 @@
 import scripts.main as runner
-import __init__ as init
+from scripts import initScripts as init
 import scripts.camShow as cvShow
 import threading
 

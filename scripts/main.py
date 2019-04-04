@@ -17,10 +17,3 @@ def main(camNum, lang):
 		if(output != ""):
 			print output
 			print "------------------------------------------------------------"
-
-		if cv2.waitKey(1) & 0xFF == ord('q'):
-			break
-
-	# When everything done, release the capture
-	cam.release()
-	cv2.destroyAllWindows()
