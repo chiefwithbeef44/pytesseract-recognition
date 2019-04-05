@@ -1,4 +1,4 @@
-import scripts.main as runner
+import scripts.tesseract as runner
 from scripts import initScripts as init
 import scripts.camShow as cvShow
 import threading
@@ -6,9 +6,12 @@ import threading
 camera = init.getCamera()
 lang = init.pickLanguage()
 
-tessThread = threading.Thread(runner.main(camera, lang))
-camThread = threading.Thread(cvShow.showCamera(camera))
+tessThread = threading.Thread(target=runner.main(lang=lang, cam=cvShow.getCamera(camera)))
+tessThread.daemon = True
+
+cameraThread = threading.Thread(target=cvShow.show())
+cameraThread.daemon = True
 
 if __name__ == '__main__':
-	camThread.start()
 	tessThread.start()
+	cameraThread.start()

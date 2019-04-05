@@ -1,19 +1,19 @@
 import cv2
 
+global cam
+global grayscaleImage
+defaultCam = 0
 
-def startCamera(camNum):
-	"""
-	Do NOT use this method.
-	:return: returns the camera variable to get feed.
-	"""
+
+def getCamera(camNum):
+	defaultCam = camNum
 	cam = cv2.VideoCapture(camNum)
 	return cam
 
 
-def showCamera(camNum):
+def show():
 	while True:
-
-		cam = startCamera(camNum)
+		cam = cv2.VideoCapture(defaultCam)
 		frame = cam.read()
 
 		grayscaleImage = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

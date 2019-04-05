@@ -2,10 +2,7 @@ import pytesseract
 import cv2
 
 
-def main(camNum, lang):
-
-	cam = cv2.VideoCapture(camNum)
-
+def main(lang, cam):
 	while True:
 		ret, frame = cam.read()
 
@@ -13,7 +10,8 @@ def main(camNum, lang):
 
 		output = pytesseract.image_to_string(grayscaleImage, lang=lang, nice=0, output_type=pytesseract.Output.STRING)
 		boxes = pytesseract.image_to_boxes(grayscaleImage)
+		print(boxes)
 
-		if(output != ""):
+		if output != "":
 			print output
 			print "------------------------------------------------------------"
