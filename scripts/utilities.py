@@ -1,3 +1,4 @@
+# noinspection PyPep8Naming
 def getCamera():
 	print "Please select a webcam"
 	print "Your default camera is camera #0"
@@ -7,6 +8,7 @@ def getCamera():
 	return int(camera)
 
 
+# noinspection PyPep8Naming
 def pickLanguage():
 	lang = 0
 	print "Select a language: "
